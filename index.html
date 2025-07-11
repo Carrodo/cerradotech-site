@@ -3,113 +3,164 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title></title>
+  <title>CerradoTech | Climatização & Refrigeração</title>
 
+  <!-- Fonte Montserrat -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
   <style>
     body {
       font-family: 'Montserrat', sans-serif;
-      background: #0c1c1c;
+      background: #f7fdfd;
       margin: 0;
       padding: 0;
-      color: #ffffff;
+      color: #333;
     }
 
-    .container {
-      max-width: 500px;
-      margin: 0 auto;
-      padding: 30px 20px;
+    header {
       text-align: center;
+      padding: 30px 20px 10px;
     }
 
-    img.logo {
+    header img {
       width: 100px;
       margin-bottom: 10px;
     }
 
-    h1 {
-      color: #81d4fa;
-      font-size: 28px;
-      margin: 10px 0;
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+      color: #00796b;
     }
 
-    p {
-      font-size: 18px;
-      margin-bottom: 30px;
-    }
-
-    .card {
-      background-color: #1a1f1f;
-      border-radius: 12px;
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
       padding: 20px;
+    }
+
+    .service-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 25px;
       margin-bottom: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
     }
 
-    .card h2 {
-      font-size: 18px;
-      color: #eeeeee;
-      margin-bottom: 8px;
+    .service-card:hover {
+      transform: scale(1.02);
     }
 
-    .card small {
-      display: block;
-      font-size: 14px;
-      color: #aaaaaa;
+    .service-card i {
+      font-size: 38px;
+      color: #009688;
       margin-bottom: 10px;
     }
 
-    .price {
-      font-size: 22px;
-      font-weight: bold;
-      color: #4dd0e1;
+    .service-card h2 {
+      margin: 10px 0 5px;
+      font-size: 20px;
+      color: #00796b;
     }
 
-    .whatsapp-btn {
-      display: inline-block;
+    .options {
+      display: none;
+      margin-top: 15px;
+    }
+
+    .options button {
+      display: block;
+      width: 100%;
       background-color: #25D366;
       color: white;
-      padding: 14px 28px;
-      margin-top: 30px;
-      border-radius: 10px;
-      text-decoration: none;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
       font-weight: 600;
-      font-size: 18px;
+      cursor: pointer;
       transition: background 0.3s ease;
     }
 
-    .whatsapp-btn:hover {
+    .options button:hover {
       background-color: #1ebe5b;
+    }
+
+    footer {
+      background: #e0f2f1;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #555;
     }
   </style>
 </head>
 <body>
+
+  <header>
+    <img src="logo-cerradotech.png" alt="Logo CerradoTech" />
+    <h1>CerradoTech Climatização & Refrigeração</h1>
+  </header>
+
   <div class="container">
-    <img src="logo-cerradotech.png" alt="Logo CerradoTech Climatização" class="logo"/>
-    <p style="margin-top: 0;">CerradoTech<br>Climatização</p>
 
-    <h1>Higienização de Ar-Condicionado</h1>
-    <p>Serviço profissional e confiável para manter seu ar sempre puro!</p>
-
-    <div class="card">
-      <h2>Ar-condicionado Convencional</h2>
-      <small>(9.000 a 12.000 BTUs)</small>
-      <div class="price">A partir de R$ 200,00</div>
+    <!-- Ar-condicionado -->
+    <div class="service-card" onclick="toggleOptions('ar')">
+      <i class="fas fa-wind"></i>
+      <h2>Ar-Condicionado</h2>
+      <div class="options" id="ar">
+        <button onclick="openWhatsApp('higienização de ar-condicionado')">Higienização</button>
+        <button onclick="openWhatsApp('manutenção de ar-condicionado')">Manutenção</button>
+        <button onclick="openWhatsApp('compra de ar-condicionado (novo ou usado)')">Venda de Aparelho</button>
+      </div>
     </div>
 
-    <div class="card">
-      <h2>Ar-condicionado Inverter</h2>
-      <small>(9.000 a 12.000 BTUs)</small>
-      <div class="price">A partir de R$ 300,00</div>
+    <!-- Máquina de Lavar -->
+    <div class="service-card" onclick="toggleOptions('lavar')">
+      <i class="fas fa-tint"></i>
+      <h2>Máquina de Lavar</h2>
+      <div class="options" id="lavar">
+        <button onclick="openWhatsApp('higienização de máquina de lavar')">Higienização</button>
+        <button onclick="openWhatsApp('manutenção de máquina de lavar')">Manutenção</button>
+        <button onclick="openWhatsApp('compra de máquina de lavar (nova ou usada)')">Venda de Aparelho</button>
+      </div>
     </div>
 
-    <a class="whatsapp-btn"
-       href="https://wa.me/5566996686355?text=Olá%2C%20quero%20agendar%20uma%20higienização%20de%20ar-condicionado%20com%20a%20CerradoTech!"
-       target="_blank">
-      Agendar pelo WhatsApp
-    </a>
+    <!-- Geladeira -->
+    <div class="service-card" onclick="toggleOptions('geladeira')">
+      <i class="fas fa-snowflake"></i>
+      <h2>Geladeira</h2>
+      <div class="options" id="geladeira">
+        <button onclick="openWhatsApp('higienização de geladeira')">Higienização</button>
+        <button onclick="openWhatsApp('manutenção de geladeira')">Manutenção</button>
+        <button onclick="openWhatsApp('compra de geladeira (nova ou usada)')">Venda de Aparelho</button>
+      </div>
+    </div>
+
   </div>
+
+  <footer>
+    © 2025 CerradoTech Climatização. Todos os direitos reservados.
+  </footer>
+
+  <script>
+    function toggleOptions(id) {
+      const element = document.getElementById(id);
+      element.style.display = element.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function openWhatsApp(servico) {
+      const msg = `Olá, quero agendar um serviço de ${servico} com a CerradoTech.`;
+      const url = `https://wa.me/5566996686355?text=${encodeURIComponent(msg)}`;
+      window.open(url, '_blank');
+    }
+  </script>
+
 </body>
 </html>
 
